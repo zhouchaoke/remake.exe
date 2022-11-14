@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Lifeevent {
+public class LifeEvent {
     private int _id; // id标识符
     private String _content; // 事件内容
     private List<Integer> _achievementIdList; // 触发成就id的列表,可以为None

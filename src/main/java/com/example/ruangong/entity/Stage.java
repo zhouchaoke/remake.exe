@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 public class Stage {
     private int _id; // 标识符id
-    private ArrayList<Integer> _eventIds; // 专属该阶段的事件id列表
+    private List<Integer> _eventIds; // 专属该阶段的事件id列表
 }

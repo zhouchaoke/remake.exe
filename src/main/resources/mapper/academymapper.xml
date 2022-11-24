@@ -3,17 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ruangong.mapper.academymapper">
-    <select id="findbytype" resultType="com.example.ruangong.entity.academy">
+    <select id="findbytype" resultType="com.example.ruangong.entity.Academy">
         select *
         from academy
         where academy_type=#{type}
     </select>
-    <select id="findbyname" resultType="com.example.ruangong.entity.academy">
+    <select id="findbyname" resultType="com.example.ruangong.entity.Academy">
         select *
         from academy
         where academy_name=#{name}
     </select>
-    <select id="find" resultType="com.example.ruangong.entity.academy">
+    <select id="find" resultType="com.example.ruangong.entity.Academy">
         select *
         from academy
     </select>

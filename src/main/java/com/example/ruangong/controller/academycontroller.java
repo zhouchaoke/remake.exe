@@ -1,6 +1,6 @@
 package com.example.ruangong.controller;
 
-import com.example.ruangong.entity.academy;
+import com.example.ruangong.entity.Academy;
 import com.example.ruangong.mapper.academymapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,20 +11,20 @@ import java.util.Random;
 @CrossOrigin
 @RestController
 @RequestMapping
-public class choicecontroller {
+public class academycontroller {
     @Autowired
     academymapper aca;
     @GetMapping("/academychoice")
-    public academy academy_choice(String type){
+    public Academy academy_choice(String type){
          Random r = new Random();
          int number=r.nextInt(4);
-         List<academy> ac = aca.findbytype(type);
-         academy acad = ac.get(0);
+         List<Academy> ac = aca.findbytype(type);
+         Academy acad = ac.get(number);
+         String str = acad.getMajor_list();
+         String st[] = str.split(",");
+         number=r.nextInt(st.length);
+         acad.setMajor_list(st[number]);
          return acad;
     }
 
-    @GetMapping
-    public List<academy> test(){
-        return aca.find();
-    }
 }

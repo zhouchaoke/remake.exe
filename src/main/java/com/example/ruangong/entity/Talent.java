@@ -8,8 +8,9 @@ import java.util.List;
 
 @Data
 public class Talent {
-    private int _id;// 唯一表示符id
-    private String _color; // 颜色（稀有度）
-    private List<Integer> _propertiesChange; // 玩家属性的改变,可以为None
-    private List<Integer> _eventIds; // 天赋专属事件,可以为None
+    private int id;// 唯一表示符id
+    private String name;// 名称
+    private String rarity;// 颜色（稀有度）
+    private String property_change; // 玩家属性的改变,可以为None
+    private String talent_event_id; // 天赋专属事件,可以为None
 }

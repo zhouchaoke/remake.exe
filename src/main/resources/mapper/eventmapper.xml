@@ -3,9 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ruangong.mapper.eventmapper">
-    <select id="findbyname" resultType="com.example.ruangong.entity.LifeEvent">
+    <select id="findbyid" resultType="com.example.ruangong.entity.LifeEvent">
         select *
         from lifeevent
-        where academy_name=#{name}
+        where id between #{min} and #{max}
+    </select>
+    <select id="findbystage" resultType="com.example.ruangong.entity.LifeEvent">
+        select *
+        from lifeevent
+        where stage_id =#{stage}
     </select>
 </mapper>

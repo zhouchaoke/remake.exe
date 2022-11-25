@@ -21,7 +21,7 @@ public class academycontroller {
          List<Academy> ac = aca.findbytype(type);
          Academy acad = ac.get(number);
          String str = acad.getMajor_list();
-         String st[] = str.split(",");
+         String st[] = str.split(" ");
          number=r.nextInt(st.length);
          acad.setMajor_list(st[number]);
          return acad;

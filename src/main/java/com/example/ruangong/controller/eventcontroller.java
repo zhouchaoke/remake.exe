@@ -2,8 +2,10 @@ package com.example.ruangong.controller;
 
 import com.example.ruangong.entity.LifeEvent;
 import com.example.ruangong.entity.Union;
+import com.example.ruangong.entity.Vacation;
 import com.example.ruangong.mapper.achievementmapper;
 import com.example.ruangong.mapper.eventmapper;
+import com.example.ruangong.mapper.vacationmapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +24,10 @@ public class eventcontroller {
     private eventmapper eve;
     @Autowired
     private achievementmapper ach;
+    @Autowired
+    private vacationmapper vac;
     @GetMapping("event")
-    private Union react(String s,int stage) {
+    private Union react(String s,int stage,int item) {
         Union union = new Union();
         List<LifeEvent> l = new ArrayList<>();
         List<LifeEvent> temp;
@@ -33,6 +37,7 @@ public class eventcontroller {
         for (int i = 0; i < num.length; i++) {
             num[i] = Integer.parseInt(property[i]);
         }
+        if(item==0){
         //智力
         if (num[0] <= 4) {
             temp = eve.findbyid(1, 9);
@@ -79,32 +84,28 @@ public class eventcontroller {
         }
         //运气
         if (num[4] <= 4) {
-            temp = eve.findbyid(109,117);
-            l=select(temp,l);
-        }
-        else if(num[4]>=5&&num[4]<=9) {
-            temp = eve.findbyid(118,126);
-            l=select(temp,l);
-        }
-        else {
-            temp = eve.findbyid(127,135);
-            l=select(temp,l);
+            temp = eve.findbyid(109, 117);
+            l = select(temp, l);
+        } else if (num[4] >= 5 && num[4] <= 9) {
+            temp = eve.findbyid(118, 126);
+            l = select(temp, l);
+        } else {
+            temp = eve.findbyid(127, 135);
+            l = select(temp, l);
         }
         //心情
         if (num[5] <= 4) {
-            temp = eve.findbyid(136,144);
-            l=select(temp,l);
-        }
-        else if(num[5]>=5&&num[5]<=9) {
-            temp = eve.findbyid(145,153);
-            l=select(temp,l);
-        }
-        else {
-            temp = eve.findbyid(153,162);
-            l=select(temp,l);
+            temp = eve.findbyid(136, 144);
+            l = select(temp, l);
+        } else if (num[5] >= 5 && num[5] <= 9) {
+            temp = eve.findbyid(145, 153);
+            l = select(temp, l);
+        } else {
+            temp = eve.findbyid(153, 162);
+            l = select(temp, l);
         }
         //阶段
-        st=eve.findbystage(stage);
+        st = eve.findbystage(stage);
         l.addAll(st);
         Random r = new Random();
         int number = r.nextInt(l.size());
@@ -112,6 +113,10 @@ public class eventcontroller {
         String p = tem.getAchievement_id_list();
         union.setAchievement(ach.find(p));
         union.setLifeEvent(tem);
+    }
+        //假期
+       else
+            union.setVacation(vacation_event(vac));
         return union;
     }
 
@@ -132,5 +137,24 @@ public class eventcontroller {
             } else continue;
         }
         return l2;
+    }
+    public List<Vacation> vacation_event(vacationmapper vac) {
+        List<Vacation> ac=vac.find();
+        List<Vacation> a= new ArrayList<Vacation>();
+        int flag[]=new int[ac.size()];
+        for(int i=0;i<ac.size();i++){
+            flag[i]=0;
+        }
+        for(;a.size()<7;){
+            Random r = new Random();
+            int number = r.nextInt(ac.size());
+            if(flag[number]==0) {
+                a.add(ac.get(number));
+                flag[number]=1;
+            }
+            else continue;
+        }
+
+        return a;
     }
 }

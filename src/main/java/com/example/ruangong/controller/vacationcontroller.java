@@ -19,26 +19,6 @@ public class vacationcontroller {
     @Autowired
     vacationmapper aca;
 
-    @GetMapping("/vacation")
-    public List<Vacation> vacation_event() {
-        List<Vacation> ac=aca.find();
-        List<Vacation> a= new ArrayList<Vacation>();
-        int flag[]=new int[ac.size()];
-        for(int i=0;i<ac.size();i++){
-            flag[i]=0;
-        }
-        for(;a.size()<7;){
-            Random r = new Random();
-            int number = r.nextInt(ac.size());
-            if(flag[number]==0) {
-                a.add(ac.get(number));
-                flag[number]=1;
-            }
-            else continue;
-        }
-
-        return a;
-    }
 
     }
 

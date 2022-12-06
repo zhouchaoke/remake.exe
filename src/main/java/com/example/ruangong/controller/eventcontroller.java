@@ -26,7 +26,7 @@ public class eventcontroller {
     private achievementmapper ach;
     @Autowired
     private vacationmapper vac;
-    @GetMapping("event")
+    @GetMapping("/event")
     private Union react(String s,int stage,int item) {
         Union union = new Union();
         List<LifeEvent> l = new ArrayList<>();

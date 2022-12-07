@@ -6,4 +6,7 @@
     <insert id="insert">
         insert into user(createtime) values(#{createtime})
     </insert>
+    <select id="find" resultType="com.example.ruangong.entity.User">
+        select id from user where createtime=#{createtime}
+    </select>
 </mapper>

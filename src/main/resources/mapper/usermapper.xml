@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ruangong.mapper.usermapper">
     <insert id="insert">
-        insert into user(createtime) values(#{createtime})
+        insert into user(createTime) values(#{createtime})
     </insert>
     <select id="find" resultType="com.example.ruangong.entity.User">
-        select id from user where createtime=#{createtime}
+        select id from user where creaTetime=#{createtime}
     </select>
 </mapper>

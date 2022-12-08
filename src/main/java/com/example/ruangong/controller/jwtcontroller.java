@@ -28,9 +28,12 @@ public class jwtcontroller {
         return JwtUtils.createToken(p);
     }
     @GetMapping("/user/data")
-    protected User doget(@RequestHeader("lifestartToken") String req){
+    protected Returntoken doget(@RequestHeader("lifestartToken") String req){
             try{
-                return u.find(JwtUtils.getDate(req));
+                 re.setCommonAchievemntList(u.find(JwtUtils.getDate(req)).getCommonAchievementList());
+                 re.setSpecialAchievementList(u.find(JwtUtils.getDate(req)).getSpecialAchievementList());
+                 re.setRestartNum(u.find(JwtUtils.getDate(req)).getRestartNum());
+                 return re;
             }catch (Exception e){
                 return null;
             }

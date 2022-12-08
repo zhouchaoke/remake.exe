@@ -23,7 +23,7 @@ public class achievementcontroller {
       public List<Returnachievement> achievement(int page,int limit,String type){
          List<Achievement> p = ach.find_by_type(type);
          List<Returnachievement> k = new ArrayList<>();
-         for(int i=0;i<limit;i++)
+         for(int i=0;i<limit&&page*limit-limit+i<ach.find_num(type);i++)
          {
              Returnachievement temp = new Returnachievement();
              temp.setId(p.get(page*limit-limit+i).getId());

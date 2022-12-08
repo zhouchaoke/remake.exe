@@ -17,11 +17,11 @@ import java.util.Map;
 @Component
 public class JwtUtils {
     public static final String SECRET = "JKKLJOoasdlfj";
-    /** token 过期时间: 10天 */
+    /** token 过期时间: 10000000天 */
     public static final int calendarField = 5;
-    public static final int calendarInterval = 10;
+    public static final int calendarInterval = 10000000;
 
-    public static String createToken(Date user_id) throws JWTCreationException {
+    public static String createToken(String user_id) throws JWTCreationException {
         Date iatDate = new Date();
         Calendar nowTime = Calendar.getInstance();
         nowTime.add(calendarField, calendarInterval);
@@ -52,30 +52,21 @@ public class JwtUtils {
     }
 
 
-    public static Date getAppUID(String token) {
+    public static String getDate(String token) {
         Map<String, Claim> claims = verifyToken(token);
         Claim user_id_claim = claims.get("user_id");
        // if (null == user_id_claim || StringUtils.isEmpty(user_id_claim.asString())) {
             // token 校验失败, 抛出Token验证非法异常
         //}
-        return user_id_claim.asDate();
+        return user_id_claim.asString();
     }
     public static void main(String[] args) {
-        Date a = new Date();
-        try {
-            Thread.sleep(1);
-        }catch(Exception e){
-            ;
-        }
-
-
-        Date b = new Date();
-        if(a.equals(b)) System.out.println("6");
+        String a="awdd";
         String token = createToken(a);
         System.out.println("生成TOKEN-----------------------------------------");
         System.out.println(token);
         System.out.println("验证-----------------------------------------");
-        System.out.println(getAppUID(token));
+        System.out.println(getDate(token));
 
     }
 }

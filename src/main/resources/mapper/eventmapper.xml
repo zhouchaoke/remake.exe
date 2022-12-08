@@ -13,4 +13,9 @@
         from lifeevent
         where stage_id =#{stage}
     </select>
+    <select id="findid" resultType="com.example.ruangong.entity.LifeEvent">
+        select *
+        from lifeevent
+        where id =#{id}
+    </select>
 </mapper>

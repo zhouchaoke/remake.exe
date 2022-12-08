@@ -8,4 +8,16 @@
         from achievement
         where id=#{id}
     </select>
+    <select id="find_all" resultType="int">
+        select count(*)
+        from achievement
+    </select>
+    <select id="find_by_type" resultType="com.example.ruangong.entity.Achievement">
+        select *
+        from achievement where type=#{type}
+    </select>
+    <select id="find_num" resultType="int">
+        select count(*)
+        from achievement where type=#{type}
+    </select>
 </mapper>

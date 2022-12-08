@@ -7,5 +7,5 @@ public class Returnlifeevent {
     private int id;
     private String content;
     private int[] propertyChange;
-    private boolean gameover;
+    private boolean gameOver;
 }

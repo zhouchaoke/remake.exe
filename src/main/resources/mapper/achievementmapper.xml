@@ -14,10 +14,10 @@
     </select>
     <select id="find_by_type" resultType="com.example.ruangong.entity.Achievement">
         select *
-        from achievement where type=#{type}
+        from achievement where achievement_type=#{type}
     </select>
     <select id="find_num" resultType="int">
         select count(*)
-        from achievement where type=#{type}
+        from achievement where achievement_type=#{type}
     </select>
 </mapper>

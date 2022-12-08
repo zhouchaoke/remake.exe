@@ -20,9 +20,6 @@ import java.util.Random;
 public class talentcontroller {
     @Autowired
     talentmapper aca;
-    /*@Autowired
-    Returntalent b;*/
-
     @GetMapping("/talents")
     public List<Returntalent> talent_choice() {
        List<Talent> ac=aca.find();

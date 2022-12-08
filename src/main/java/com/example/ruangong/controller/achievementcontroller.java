@@ -40,4 +40,16 @@ public class achievementcontroller {
           r.setSpecialAchievementsNum(ach.find_num("特殊"));
           return r;
       }
+    @GetMapping("/achievements1")
+    public List<Returnachievement> achievement(int page,int limit,int[] ids){
+          List<Returnachievement> k = new ArrayList<>();
+          for(int i=0;i<limit&&page*limit-limit+i<ids.length;i++){
+              Returnachievement temp = new Returnachievement();
+              temp.setName(ach.find(String.valueOf(ids[page*limit-limit+i])).getName());
+              temp.setId(ach.find(String.valueOf(ids[page*limit-limit+i])).getId());
+              temp.setRarity(ach.find(String.valueOf(ids[page*limit-limit+i])).getRarity());
+              k.add(temp);
+          }
+              return k;
+    }
 }

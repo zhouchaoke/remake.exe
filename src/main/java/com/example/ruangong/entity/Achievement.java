@@ -12,5 +12,5 @@ public class Achievement {
     private int id; // 唯一标识id
     private int rarity; // 颜色（稀有度）
     private String name;
-    private String type;
+    private String achievement_type;
 }

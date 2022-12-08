@@ -110,6 +110,15 @@ public class eventcontroller {
                     l.remove(j);
             }
         }
+        for(int i=0;i<l.size();i++) {
+            int c = 0;
+            for (int j = 0; j <eventList.length; j++) {
+                if (l.get(i).getPrecondition().equals(String.valueOf(eventList[j]))) {
+                    c = 1;
+                }
+            }
+            if(c==0) l.remove(i);
+        }
         Random r = new Random();
         int propsber = r.nextInt(l.size());
         LifeEvent tem = l.get(propsber);

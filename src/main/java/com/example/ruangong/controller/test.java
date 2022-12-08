@@ -15,10 +15,10 @@ public class test {
     @Autowired
     eventmapper eve;
     @GetMapping("/test")
-    public int test(int id){
-        String s = eve.findid(id).getAchievement_id_list();
-         if(s.equals("")) return 0;
-         else return 1;
+    public boolean test(int id){
+        int[] a=new int[]{10,5,6,3,4};
+       return eve.findid(id).getPrecondition().equals(String.valueOf(a[0]));
+
 
         //return Integer.parseInt(s);
     }

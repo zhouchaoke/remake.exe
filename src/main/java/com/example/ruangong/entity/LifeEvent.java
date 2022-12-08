@@ -13,6 +13,6 @@ public class LifeEvent {
     private String img_url; // 图片的连接,可以为None
     private int stage_id;// 阶段id
     private String event_type; // 类别：6个属性，阶段事件，学院事件
-    private String happen_list;// 后续触发事件的id列表,可以为None
+    private String precondition;// 后续触发事件的id列表,可以为None
     private String game_over; // 是否引起游戏的结束, 0为结束，1为未结束
 }

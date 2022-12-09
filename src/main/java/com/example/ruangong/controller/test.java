@@ -18,10 +18,8 @@ public class test {
     @Autowired
     academymapper aca;
     @GetMapping("/test")
-    public boolean test(String s){
-   return false;
-
-
-        //return Integer.parseInt(s);
+    public boolean test(String type,int[] ids){
+           if(type==null) return true;
+           else return false;
     }
 }

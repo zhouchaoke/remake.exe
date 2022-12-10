@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface academymapper {
        List<Academy> findbytype(String type);
-       List<Academy> findbyname(String name);
+       int findnum(String name);
        List<Academy> find();
 }

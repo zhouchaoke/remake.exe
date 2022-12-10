@@ -8,10 +8,10 @@
         from academy
         where academy_type=#{type}
     </select>
-    <select id="findbyname" resultType="com.example.ruangong.entity.Academy">
-        select *
+    <select id="findnum" resultType="int">
+        select count(*)
         from academy
-        where academy_name=#{name}
+        where academy_type=#{type}
     </select>
     <select id="find" resultType="com.example.ruangong.entity.Academy">
         select *

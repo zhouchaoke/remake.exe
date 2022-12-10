@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class Returnevent {
-    private Returnachievement returnachievement;
-    private Returnlifeevent returnlifeevent;
+    private Returnachievement achievement;
+    private Returnlifeevent lifeEvent;
     boolean haveAchievement;
 }

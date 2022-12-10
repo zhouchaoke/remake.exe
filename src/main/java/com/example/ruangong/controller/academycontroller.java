@@ -19,7 +19,7 @@ public class academycontroller {
     public Returnacademy academy_choice(String majorType){
          Returnacademy rac = new Returnacademy();
          Random r = new Random();
-         int number=r.nextInt(4);
+         int number=r.nextInt(aca.findnum(majorType));
          List<Academy> ac = aca.findbytype(majorType);
          Academy acad = ac.get(number);
          String str = acad.getMajor_list();

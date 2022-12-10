@@ -2,6 +2,7 @@ package com.example.ruangong.controller;
 
 import com.example.ruangong.entity.Returntoken;
 import com.example.ruangong.entity.User;
+import com.example.ruangong.entity.token;
 import com.example.ruangong.jwt.JwtUtils;
 import com.example.ruangong.mapper.usermapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,15 @@ public class jwtcontroller {
     @Autowired
     usermapper u;
     Returntoken re = new Returntoken();
+    token r = new token();
     @GetMapping("/token")
-    public String token(){
+    public token token(){
         Date t = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String p = simpleDateFormat.format(t);
         //u.insert(p);
-        return JwtUtils.createToken(p);
+        r.setToken(JwtUtils.createToken(p));
+        return r;
     }
     @GetMapping("/user/data")
     protected Returntoken doget(@RequestHeader("lifestartToken") String req){

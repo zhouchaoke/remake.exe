@@ -125,9 +125,9 @@ public class eventcontroller {
         k.setId(tem.getId());
         k.setContent(tem.getContent());
         if (tem.getGame_over().equals("1")) {
-            k.setGameover(true);
+            k.setGameOver(true);
         } else {
-            k.setGameover(false);
+            k.setGameOver(false);
         }
         String s = tem.getProperty_change();
         String[] str=s.split(" ");
@@ -137,7 +137,7 @@ public class eventcontroller {
           op[i]=Integer.parseInt(str[i]);
         }
         k.setPropertyChange(op);
-        union.setReturnlifeevent(k);
+        union.setLifeEvent(k);
         String p = tem.getAchievement_id_list();
         int flag=0;
         if(!p.equals("")) {
@@ -146,7 +146,7 @@ public class eventcontroller {
                 if (achievementList[i] == pp) {
                     union.setHaveAchievement(false);
                     flag = 1;
-                    union.setReturnachievement(null);
+                    union.setAchievement(null);
                     break;
                 }
             }
@@ -154,13 +154,13 @@ public class eventcontroller {
                 o.setId(ach.find(p).getId());
                 o.setRarity(ach.find(p).getRarity());
                 o.setName(ach.find(p).getName());
-                union.setReturnachievement(o);
+                union.setAchievement(o);
                 union.setHaveAchievement(true);
             }
         }
         else {
             union.setHaveAchievement(false);
-            union.setReturnachievement(null);
+            union.setAchievement(null);
         }
         return union;
 

@@ -28,19 +28,11 @@ class academtTest {
         System.out.println(temp);
     }
 
-    @Test
-    @DisplayName("academy的findbyname方法测试")
-    void academy2(){
-//        判断返回的数据是否是指定学院的相关数据
-        List<Academy> temp = aca.findbyname("电气学院");
-        Assertions.assertEquals("电气学院",temp.get(0).getAcademy_name());
-        System.out.println(temp);
-    }
 
     @Test
     @DisplayName("academy的find方法测试")
     void academy3(){
-        List<Academy> temp = aca.findbytype("文");
+        List<Academy> temp = aca.find();
         Assertions.assertNotNull(temp);
         System.out.println(temp);
     }

@@ -103,21 +103,24 @@ public class eventcontroller {
         //阶段
         st = eve.findbystage(academyId);
         l.addAll(st);
-        for(int i=0;i<eventList.length;i++) {
+        for(int i=eventList.length-1;i>0;i--) {
             for(int j=0;j<l.size();j++)
             {
                 if(l.get(j).getId()==eventList[i])
                     l.remove(j);
             }
         }
-        for(int i=0;i<l.size();i++) {
+        for(int i=l.size()-1;i>=0;i--) {
             int c = 0;
-            for (int j = 0; j <eventList.length; j++) {
-                if (l.get(i).getPrecondition().equals(String.valueOf(eventList[j]))) {
-                    c = 1;
+            if(!l.get(i).getPrecondition().equals("")) {
+                for (int j = 0; j < eventList.length; j++) {
+                    if (l.get(i).getPrecondition().equals(String.valueOf(eventList[j]))) {
+                        c = 1;
+                    }
                 }
+                if(c==0)
+                    l.remove(i);
             }
-            if(c==0) l.remove(i);
         }
         Random r = new Random();
         int propsber = r.nextInt(l.size());

@@ -26,7 +26,7 @@ public class jwtcontroller {
         Date t = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String p = simpleDateFormat.format(t);
-        //u.insert(p);
+        u.insert(p);
         r.setToken(JwtUtils.createToken(p));
         return r;
     }

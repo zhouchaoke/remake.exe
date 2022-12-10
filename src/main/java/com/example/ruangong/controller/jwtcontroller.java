@@ -30,7 +30,7 @@ public class jwtcontroller {
         r.setToken(JwtUtils.createToken(p));
         return r;
     }
-    @GetMapping("/user/data")
+    @PostMapping("/user/data")
     protected Returntoken doget(@RequestHeader("lifestartToken") String req){
             try{
                  re.setCommonAchievemntList(u.find(JwtUtils.getDate(req)).getCommonAchievementList());

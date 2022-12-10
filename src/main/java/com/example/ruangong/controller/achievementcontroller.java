@@ -46,8 +46,8 @@ public class achievementcontroller {
       @GetMapping("/source")
       public Returnachievementnumber number(){
           Returnachievementnumber r = new Returnachievementnumber();
-          r.setCommonAchievementsNum(ach.find_num("普通"));
-          r.setSpecialAchievementsNum(ach.find_num("特殊"));
+          r.setCommonAchievementsNum(ach.find_num("普通成就"));
+          r.setSpecialAchievementsNum(ach.find_num("特殊成就"));
           return r;
       }
 }

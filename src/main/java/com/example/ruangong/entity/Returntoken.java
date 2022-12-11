@@ -6,5 +6,5 @@ import lombok.Data;
 public class Returntoken {
     private int[] commonAchievemntList;
     private int[] specialAchievementList;
-    private String restartNum;
+    private int restartNum;
 }

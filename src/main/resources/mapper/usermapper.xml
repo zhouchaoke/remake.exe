@@ -7,6 +7,11 @@
         insert into user(createTime) values(#{createtime})
     </insert>
     <select id="find" resultType="com.example.ruangong.entity.User">
-        select id from user where creaTetime=#{createtime}
+        select * from user where createTime=#{createtime}
     </select>
+    <update id="update">
+        update user set commonAchievementList=#{commonAchievementList},specialAchievementList=#{specialAchievementList},
+                        restartNum=#{restartNum} where createTime=#{createTime}
+
+    </update>
 </mapper>

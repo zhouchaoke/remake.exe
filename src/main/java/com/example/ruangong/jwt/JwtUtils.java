@@ -61,7 +61,7 @@ public class JwtUtils {
         return user_id_claim.asString();
     }
     public static void main(String[] args) {
-        String a="awdd";
+        String a="2022--12-7";
         String token = createToken(a);
         System.out.println("生成TOKEN-----------------------------------------");
         System.out.println(token);
@@ -70,3 +70,4 @@ public class JwtUtils {
 
     }
 }
+//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiMjAxMSA1IDIiLCJpc3MiOiJTZXJ2aWNlIiwiZXhwIjo4NjU2NzA3NjM1MzEsImlhdCI6MTY3MDc2MzUzMX0.68vVUeKjMNQPq38tCBSj2bwsI7WTA9i-f2K5a31SaEQ

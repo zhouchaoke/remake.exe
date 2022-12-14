@@ -168,6 +168,20 @@ public class eventcontroller {
         return union;
 
     }
+    @GetMapping("/indexwel")
+    public Returneventnum returneventnum(int pageNum){
+        Returneventnum e = new Returneventnum();
+        e.setTotal(eve.findnum());
+        try {
+            e.setData(eve.findbyid(10*pageNum-10+1,10*pageNum));
+            e.setMsg("ok");
+        }catch (Exception o){
+            e.setData(null);
+            e.setMsg("error");
+            return e;
+        }
+        return e;
+    }
 
     public List<LifeEvent> select(List<LifeEvent> l1, List<LifeEvent> l2) {
 

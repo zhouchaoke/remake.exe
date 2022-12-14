@@ -42,7 +42,7 @@ public class AchievementTest {
     void achievement3(){
 //        判断数据库中普通类型的数量是否正确
         int  temp = ach.find_num("普通成就");
-        Assertions.assertTrue(24==temp,"数据库数量类型不正确");
+        Assertions.assertTrue(24==temp,"数据库的数量类型不正确");
         System.out.println(temp);
     }
 

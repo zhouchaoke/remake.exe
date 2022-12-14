@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/liferestart?serverTimezone=GMT%2b8
+    url: jdbc:mysql://43.139.155.223:3306/liferestart?serverTimezone=GMT%2b8
     username: root
 
     password: root

@@ -31,9 +31,9 @@ public class AchievementTest {
     @Test
     @DisplayName("Achievement的find_by_type方法测试")
     void achievement2(){
-//        判断返回的数据类型是否是普通
-        List<Achievement>  temp = ach.find_by_type("普通");
-        Assertions.assertEquals("普通",temp.get(0).getAchievement_type());
+//        判断返回的数据类型是否是普通成就
+        List<Achievement>  temp = ach.find_by_type("普通成就");
+        Assertions.assertEquals("普通成就",temp.get(0).getAchievement_type());
         System.out.println(temp);
     }
 
@@ -41,7 +41,7 @@ public class AchievementTest {
     @DisplayName("Achievement的find方法测试")
     void achievement3(){
 //        判断数据库中普通类型的数量是否正确
-        int  temp = ach.find_num("普通");
+        int  temp = ach.find_num("普通成就");
         Assertions.assertTrue(24==temp,"数据库数量类型不正确");
         System.out.println(temp);
     }

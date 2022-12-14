@@ -10,4 +10,6 @@ public interface eventmapper {
       List<LifeEvent> findbyid(int min,int max);
       List<LifeEvent> findbystage(int stage);
       LifeEvent findid(int id);
+      int findnum();
+      void delete(int id);
 }

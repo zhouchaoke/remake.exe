@@ -10,4 +10,7 @@ public interface academymapper {
        List<Academy> findbytype(String type);
        int findnum(String name);
        List<Academy> find();
+       List<Academy> findbyid(int min,int max);
+       int findnumber();
+       void delete(int id);
 }

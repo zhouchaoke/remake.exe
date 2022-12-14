@@ -1,8 +1,6 @@
 package com.example.ruangong.controller;
 
-import com.example.ruangong.entity.Achievement;
-import com.example.ruangong.entity.Returnachievement;
-import com.example.ruangong.entity.Returnachievementnumber;
+import com.example.ruangong.entity.*;
 import com.example.ruangong.mapper.achievementmapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -46,8 +44,34 @@ public class achievementcontroller {
       @GetMapping("/source")
       public Returnachievementnumber number(){
           Returnachievementnumber r = new Returnachievementnumber();
-          r.setCommonAchievementsNum(ach.find_num("普通"));
-          r.setSpecialAchievementsNum(ach.find_num("特殊"));
+          r.setCommonAchievementsNum(ach.find_num("普通成就"));
+          r.setSpecialAchievementsNum(ach.find_num("特殊成就"));
           return r;
       }
+      @GetMapping("/Three")
+      public Returnachievementnum a(int pageNum){
+          Returnachievementnum e = new Returnachievementnum();
+          e.setTotal(ach.findnum());
+          try {
+              e.setData(ach.findbyid(10*pageNum-10+1,10*pageNum));
+              e.setMsg("ok");
+          }catch (Exception o){
+              e.setData(null);
+              e.setMsg("error");
+              return e;
+          }
+          return e;
+      }
+    @GetMapping("/ThreeDelete")
+    msg delete(int id){
+        msg s=new msg();
+        try {
+            ach.delete(id);
+            s.setMsg("ok");
+        }catch (Exception o){
+            s.setMsg("error");
+            return s;
+        }
+        return s;
+    }
 }

@@ -17,4 +17,16 @@
         select *
         from academy
     </select>
+    <select id="findbyid" resultType="com.example.ruangong.entity.Academy">
+        select *
+        from academy
+        where id between #{min} and #{max}
+    </select>
+    <select id="findnumber" resultType="int">
+        select count(*)
+        from academy
+    </select>
+    <delete id="delete">
+        delete from academy where id=#{id}
+    </delete>
 </mapper>

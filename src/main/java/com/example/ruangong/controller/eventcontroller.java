@@ -97,27 +97,30 @@ public class eventcontroller {
             temp = eve.findbyid(145, 153);
             l = select(temp, l);
         } else {
-            temp = eve.findbyid(153, 162);
+            temp = eve.findbyid(154, 162);
             l = select(temp, l);
         }
         //阶段
         st = eve.findbystage(academyId);
         l.addAll(st);
-        for(int i=0;i<eventList.length;i++) {
+        for(int i=eventList.length-1;i>0;i--) {
             for(int j=0;j<l.size();j++)
             {
                 if(l.get(j).getId()==eventList[i])
                     l.remove(j);
             }
         }
-        for(int i=0;i<l.size();i++) {
+        for(int i=l.size()-1;i>=0;i--) {
             int c = 0;
-            for (int j = 0; j <eventList.length; j++) {
-                if (l.get(i).getPrecondition().equals(String.valueOf(eventList[j]))) {
-                    c = 1;
+            if(!l.get(i).getPrecondition().equals("")) {
+                for (int j = 0; j < eventList.length; j++) {
+                    if (l.get(i).getPrecondition().equals(String.valueOf(eventList[j]))) {
+                        c = 1;
+                    }
                 }
+                if(c==0)
+                    l.remove(i);
             }
-            if(c==0) l.remove(i);
         }
         Random r = new Random();
         int propsber = r.nextInt(l.size());
@@ -165,6 +168,20 @@ public class eventcontroller {
         return union;
 
     }
+    @GetMapping("/One")
+    public Returneventnum returneventnum(int pageNum){
+        Returneventnum e = new Returneventnum();
+        e.setTotal(eve.findnum());
+        try {
+            e.setData(eve.findbyid(10*pageNum-10+1,10*pageNum));
+            e.setMsg("ok");
+        }catch (Exception o){
+            e.setData(null);
+            e.setMsg("error");
+            return e;
+        }
+        return e;
+    }
 
     public List<LifeEvent> select(List<LifeEvent> l1, List<LifeEvent> l2) {
 
@@ -183,5 +200,17 @@ public class eventcontroller {
             } else continue;
         }
         return l2;
+    }
+    @GetMapping("/OneDelete")
+    msg delete(int id){
+        msg s=new msg();
+        try {
+            eve.delete(id);
+            s.setMsg("ok");
+        }catch (Exception o){
+            s.setMsg("error");
+            return s;
+        }
+        return s;
     }
 }

@@ -9,4 +9,5 @@ import java.util.Date;
 public interface usermapper {
       void insert(String createtime);
       User find(String createtime);
+      void update(String commonAchievementList,String specialAchievementList,int restartNum,String createTime);
 }

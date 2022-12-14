@@ -18,4 +18,11 @@
         from lifeevent
         where id =#{id}
     </select>
+    <select id="findnum" resultType="int">
+        select count(*)
+        from lifeevent
+    </select>
+    <delete id="delete">
+        delete from lifeevent where id=#{id}
+    </delete>
 </mapper>

@@ -20,4 +20,16 @@
         select count(*)
         from achievement where achievement_type=#{type}
     </select>
+    <select id="findnum" resultType="int">
+        select count(*)
+        from achievement
+    </select>
+    <select id="findbyid" resultType="com.example.ruangong.entity.Achievement">
+        select *
+        from achievement
+        where id between #{min} and #{max}
+    </select>
+    <delete id="delete">
+        delete from achievement where id=#{id}
+    </delete>
 </mapper>

@@ -7,4 +7,16 @@
         select *
         from talent
     </select>
+    <select id="findbyid" resultType="com.example.ruangong.entity.Talent">
+        select *
+        from talent
+        where id between #{min} and #{max}
+    </select>
+    <select id="findnumber" resultType="int">
+        select count(*)
+        from talent
+    </select>
+    <delete id="delete">
+        delete from talent where id=#{id}
+    </delete>
 </mapper>

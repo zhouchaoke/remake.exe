@@ -22,4 +22,7 @@
         select count(*)
         from lifeevent
     </select>
+    <delete id="delete">
+        delete from lifeevent where id=#{id}
+    </delete>
 </mapper>

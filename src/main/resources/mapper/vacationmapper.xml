@@ -7,4 +7,16 @@
         select *
         from vacation
     </select>
+    <select id="findbyid" resultType="com.example.ruangong.entity.Vacation">
+        select *
+        from vacation
+        where id between #{min} and #{max}
+    </select>
+    <select id="findnumber" resultType="int">
+        select count(*)
+        from vacation
+    </select>
+    <delete id="delete">
+        delete from vacation where id=#{id}
+    </delete>
 </mapper>

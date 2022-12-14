@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface talentmapper {
     List<Talent> find();
+    int findnumber();
+    List<Talent> findbyid(int min,int max);
+    void delete(int id);
 }

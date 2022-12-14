@@ -1,7 +1,6 @@
 package com.example.ruangong.controller;
 
-import com.example.ruangong.entity.Returnvacation;
-import com.example.ruangong.entity.Vacation;
+import com.example.ruangong.entity.*;
 import com.example.ruangong.jwt.JwtUtils;
 import com.example.ruangong.mapper.vacationmapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +44,31 @@ public class vacationcontroller {
         }
             return a;
     }
+    @GetMapping("/Five")
+    public Returnvacationnum a(int pageNum){
+        Returnvacationnum e = new Returnvacationnum();
+        e.setTotal(vac.findnumber());
+        try {
+            e.setData(vac.findbyid(10*pageNum-10+1,10*pageNum));
+            e.setMsg("ok");
+        }catch (Exception o){
+            e.setData(null);
+            e.setMsg("error");
+            return e;
+        }
+        return e;
     }
+    @GetMapping("/FiveDelete")
+    msg delete(int id){
+        msg s=new msg();
+        try {
+            vac.delete(id);
+            s.setMsg("ok");
+        }catch (Exception o){
+            s.setMsg("error");
+            return s;
+        }
+        return s;
+    }
+}
 

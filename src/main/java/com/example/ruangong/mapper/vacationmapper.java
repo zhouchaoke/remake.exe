@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface vacationmapper {
     List<Vacation> find();
+    List<Vacation> findbyid(int min,int max);
+    int findnumber();
+    void delete(int id);
 }

@@ -11,4 +11,7 @@ public interface achievementmapper {
     int find_all();
     List<Achievement> find_by_type(String type);
     int find_num(String type);
+    int findnum();
+    List<Achievement> findbyid(int min,int max);
+    void delete(int id);
 }

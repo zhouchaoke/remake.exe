@@ -168,7 +168,7 @@ public class eventcontroller {
         return union;
 
     }
-    @GetMapping("/indexwel")
+    @GetMapping("/One")
     public Returneventnum returneventnum(int pageNum){
         Returneventnum e = new Returneventnum();
         e.setTotal(eve.findnum());
@@ -200,5 +200,17 @@ public class eventcontroller {
             } else continue;
         }
         return l2;
+    }
+    @GetMapping("/OneDelete")
+    msg delete(int id){
+        msg s=new msg();
+        try {
+            eve.delete(id);
+            s.setMsg("ok");
+        }catch (Exception o){
+            s.setMsg("error");
+            return s;
+        }
+        return s;
     }
 }

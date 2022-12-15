@@ -157,6 +157,7 @@ public class eventcontroller {
                 o.setId(ach.find(p).getId());
                 o.setRarity(ach.find(p).getRarity());
                 o.setName(ach.find(p).getName());
+                o.setType(ach.find(p).getAchievement_type());
                 union.setAchievement(o);
                 union.setHaveAchievement(true);
             }

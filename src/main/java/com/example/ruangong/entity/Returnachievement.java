@@ -8,4 +8,5 @@ public class Returnachievement {
     private String name;
     private int id;
     private String rarity;
+    private String type;
 }

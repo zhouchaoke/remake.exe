@@ -63,7 +63,7 @@ public class jwtcontroller {
     }
 
     @GetMapping("/user/update")
-    protected msg update(int[] commonAchievementList, int[] specialAchievementList, int restartNum, String lifestartToken) {
+    protected msg update(int[] commonAchievementList, int[] specialAchievementList, int restartNum, @RequestHeader("lifestartToken") String lifestartToken) {
         msg m = new msg();
         String r = JwtUtils.getDate(lifestartToken);
         try {

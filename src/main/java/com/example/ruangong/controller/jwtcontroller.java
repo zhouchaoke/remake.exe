@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -35,6 +36,8 @@ public class jwtcontroller {
 
     @GetMapping("/user/data")
     protected Returntoken doget(@RequestHeader("lifestartToken") String req) {
+            int[] p3 = new int[0];
+            int[] p4 = new int[0];
         try {
             String s = u.find(JwtUtils.getDate(req)).getCommonAchievementList();
             if (s != null&&!s.equals("")) {
@@ -43,7 +46,7 @@ public class jwtcontroller {
                 for (int i = 0; i < st.length; i++)
                     p1[i] = Integer.parseInt(st[i]);
                 re.setCommonAchievemntList(p1);
-            } else re.setCommonAchievemntList(null);
+            } else re.setCommonAchievemntList(p3);
             String s1 = u.find(JwtUtils.getDate(req)).getSpecialAchievementList();
             if (s1 != null&&!s1.equals("")) {
                 String[] s2 = s1.split(" ");
@@ -51,7 +54,7 @@ public class jwtcontroller {
                 for (int i = 0; i < s2.length; i++)
                     p2[i] = Integer.parseInt(s2[i]);
                 re.setSpecialAchievementList(p2);
-            } else re.setSpecialAchievementList(null);
+            } else re.setSpecialAchievementList(p4);
             re.setRestartNum(u.find(JwtUtils.getDate(req)).getRestartNum());
             return re;
         } catch (Exception e) {

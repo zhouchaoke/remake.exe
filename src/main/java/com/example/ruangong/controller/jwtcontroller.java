@@ -45,8 +45,8 @@ public class jwtcontroller {
                 int[] p1 = new int[st.length];
                 for (int i = 0; i < st.length; i++)
                     p1[i] = Integer.parseInt(st[i]);
-                re.setCommonAchievemntList(p1);
-            } else re.setCommonAchievemntList(p3);
+                re.setCommonAchievementList(p1);
+            } else re.setCommonAchievementList(p3);
             String s1 = u.find(JwtUtils.getDate(req)).getSpecialAchievementList();
             if (s1 != null&&!s1.equals("")) {
                 String[] s2 = s1.split(" ");

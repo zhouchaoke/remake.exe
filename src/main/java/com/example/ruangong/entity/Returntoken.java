@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Returntoken {
-    private int[] commonAchievemntList;
+    private int[] commonAchievementList;
     private int[] specialAchievementList;
     private int restartNum;
 }
